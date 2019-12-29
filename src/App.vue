@@ -7,7 +7,7 @@
 
 <script>
 import HelloWorld from './components/HelloWorld.vue'
-import axios from 'axios'
+// import axios from 'axios'
 import jsonp from 'jsonp'
 
 export default {
@@ -21,7 +21,7 @@ export default {
     }
   },
   mounted() {
-    let url = "http://localhost:3000/book/v1/list";
+    let url = "/api/book/v1/list";
     // axios.get(url).then((res)=>{
     //   console.log(res.data)
     // });
