@@ -39,3 +39,13 @@ module.exports = {
     })
   }
 ```
+使用ライブラリ
+```javascript
+npm i vue-lazyload --save-dev
+npm i element-ui --save-dev
+npm i node-sass --save-dev
+npm i sass-loader --save-dev
+npm i vue-awesome-swiper --save-dev
+npm i vue-axios --save-dev
+npm i vue-cookie --save-dev
+```
