@@ -49,3 +49,19 @@ npm i vue-awesome-swiper --save-dev
 npm i vue-axios --save-dev
 npm i vue-cookie --save-dev
 ```
+# Storageのパッケージ化
+
+```shell script
+Cookie,
+localStorage,
+sessionStorage
+```
+Cookie と　localStorage
+ - Cookie4k, Storage5M
+ - Cookieは期限あり、Storage期限無し
+ - Cookieはサーバーサイドへおくり、メモリに保存される、storageはブラウザに保存される
+ 
+Storageのパッケージ
+ - Storage　Api存在するが、key/valueの簡単形式
+ - 文字列しか保存してません、jsonへ変える必要がある
+  
