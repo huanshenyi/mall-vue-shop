@@ -64,4 +64,30 @@ Cookie と　localStorage
 Storageのパッケージ
  - Storage　Api存在するが、key/valueの簡単形式
  - 文字列しか保存してません、jsonへ変える必要がある
-  
+ 
+# responseのinterceptor
+```shell script
+テンプレート
+//0はエラーない
+//10はログインしてない
+{
+  status:0,
+  data: [],
+  msg: ''
+}
+
+mainjsでインターセプター設定する時に
+リダイレクトは以下の使用
+window.location.href = '/'
+
+ベースurlの設定
+フロントエンドのクロスドメインによって調整する
+jsonp or 他使用する際に
+axios.defaults.baseURL = 'フルパス/';
+proxy使用する際に
+axios.defaults.baseURL = '/api';
+```
+# requestのinterceptor
+```shell script
+暇あったらやろう
+```
