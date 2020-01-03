@@ -91,3 +91,20 @@ axios.defaults.baseURL = '/api';
 ```shell script
 暇あったらやろう
 ```
+
+# 環境変数のセット
+```javascript
+ 以下のmodeは環境変数
+ "serve": "vue-cli-service serve --mode"
+
+//main.js
+//もしjsonpとクロスドメイン使用していれば,以下のが必要
+import env from './env'
+axios.defaults.baseURL = env.baseURL;
+
+modeのカスタマイズは
+.env.[カスタマイズ変数]が必要
+中身は
+NODE_ENV='カスタマイズ変数'
+
+```
