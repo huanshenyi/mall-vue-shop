@@ -108,3 +108,12 @@ modeのカスタマイズは
 NODE_ENV='カスタマイズ変数'
 
 ```
+moke.jsはまぁまぁいいかも
+
+# 画像の使用
+```javascript
+// no-repeat繰り返さない
+background: url("") no-repeat center;
+
+background-size: contain
+```
