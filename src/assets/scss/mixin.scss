@@ -1,4 +1,4 @@
-//flex布局复用
+//flexレイアウトの再利用
 @mixin flex($hov:space-between,$col:center){
   display:flex;
   justify-content:$hov;
@@ -36,5 +36,5 @@
   height: $h;
 }
 @mixin border($bw:1px,$bc:$colorF,$bs:solid) {
-  border: $bw $bs $bc; 
+  border: $bw $bs $bc;
 }

@@ -117,3 +117,21 @@ background: url("") no-repeat center;
 
 background-size: contain
 ```
+
+# Scssの関数
+### scss
+```javascript
+@mixin flex($hov:space-between,$col:center){
+  display:flex;
+  justify-content:$hov;
+  align-items:$col;
+}
+```
+### vue
+```javascript
+ @import 'src/assets/scss/mixin.scss';
+ ...
+ .container{
+       @include flex();
+ ...
+```
