@@ -9,10 +9,10 @@
                     <a href="javascript:;">概要</a>
                 </div>
                 <div class="topbar-user">
-                    <a href="javascript:;">ログイン</a>
-                    <a href="javascript:;">会員登録</a>
+                    <a href="javascript:;" v-if="username">{{username}}</a>
+                    <a href="javascript:;" v-if="!username" @click="login">ログイン</a>
                     <a href="javascript:;" class="my-cart">
-                        <span class="icon-cart"></span>
+                        <span class="icon-cart" @click="goToCart"></span>
                         買い物かご
                     </a>
                 </div>
@@ -25,16 +25,16 @@
              </div>
              <div class="header-menu">
                  <div class="item-menu">
-                     <span>無料作品</span>
+                     <span>MiPhone</span>
                      <div class="children">
                          <ul>
-                             <li class="product">
-                                 <a href="" target="_blank">
+                             <li class="product" v-for="(item, index) in phoneList" :key="index">
+                                 <a :href="'/#/product/'+item.id" target="_blank">
                                    <div class="pro-img">
-                                       <img src="https://cdn.cnbj0.fds.api.mi-img.com/b2c-mimall-media/f515ab05232ed14ccd78ec67e024495a.png" alt="">
+                                       <img :src="item.mainImage" :alt="item.subtitle">
                                    </div>
-                                   <div class="pro-name">MiCC9</div>
-                                   <div class="pro-price">1799元</div>
+                                   <div class="pro-name">{{item.name}}</div>
+                                   <div class="pro-price">{{item.price | currency}}</div>
                                  </a>
                              </li>
                              <li class="product">
@@ -60,7 +60,28 @@
                  </div>
                  <div class="item-menu">
                      <span>新刊・予約</span>
-                     <div class="children"></div>
+                     <div class="children">
+                         <ul>
+                              <li class="product">
+                                 <a href="" target="_blank">
+                                   <div class="pro-img">
+                                       <img src="/imgs/nav-img/nav-3-1.jpg" alt="">
+                                   </div>
+                                   <div class="pro-name">MiCC9</div>
+                                   <div class="pro-price">6999元</div>
+                                 </a>
+                             </li>
+                             <li class="product">
+                                 <a href="" target="_blank">
+                                   <div class="pro-img">
+                                       <img src="https://cdn.cnbj0.fds.api.mi-img.com/b2c-mimall-media/f515ab05232ed14ccd78ec67e024495a.png" alt="">
+                                   </div>
+                                   <div class="pro-name">MiCC9</div>
+                                   <div class="pro-price">1799元</div>
+                                 </a>
+                             </li>
+                         </ul>
+                     </div>
                  </div>
                  <div class="item-menu">
                      <span>ランキング</span>
@@ -84,7 +105,42 @@
 
 <script>
     export default {
-        name: "NavHeader"
+        name: "NavHeader",
+        data(){
+            return {
+                username:'',
+                phoneList:[]
+            }
+        },
+        filters:{
+          currency(val){
+              if(!val)return '0.00';
+              return '$' + val.toFixed(2) + '円';
+          }
+        },
+        mounted() {
+            this.getProductList();
+        },
+        methods: {
+            login(){
+              this.$router.push('/login');
+            },
+            getProductList(){
+                this.axios.get('/products', {
+                    params: {
+                        categoryId:'100012',
+                        // pageSize:6,
+                    }
+                }).then((res)=>{
+                    if(res.list.length >= 6){
+                        this.phoneList = res.list.slice(0,6);
+                    }
+                })
+            },
+            goToCart(){
+                this.$router.push('/cart');
+            }
+        }
     }
 </script>
 
@@ -140,7 +196,8 @@
                   &:hover{
                     color: $colorA;
                     .children{
-                       height: 220px;
+                        height: 220px;
+                        opacity: 1;
                     }
                   }
                   .children{
@@ -151,7 +208,10 @@
                       border-top: 1px solid #e5e5e5;
                       box-shadow: 0px 7px 6px 0px rgba(0,0,0,0.11);
                       z-index: 10;
-                      height: 220px;
+                      height: 0;
+                      opacity: 0;
+                      overflow: hidden;
+                      transition: all 0.5s;
                       .product{
                           position: relative;
                           float: left;
