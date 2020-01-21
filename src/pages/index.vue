@@ -6,7 +6,16 @@
                     <ul class="menu-wrap">
                         <li class="menu-item">
                             <a href="javascript:;">スマホ Cimカード</a>
-                            <div class="children"></div>
+                            <div class="children">
+                                <ul v-for="(item, index) in menuList" :key="index">
+                                    <li v-for="(sub, index1) in item" :key="index1">
+                                        <a :href="sub ? '/#/product'+ sub.id : ''">
+                                            <img :src="sub?sub.img :'/imgs/item-box-1.png'" alt="">
+                                            {{sub? sub.name :'Xim9'}}
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
                         </li>
                         <li class="menu-item">
                             <a href="javascript:;">テレビ 何か</a>
@@ -106,6 +115,28 @@
                         id: "",
                         img: "/imgs/slider/slide-5.jpg"
                     }
+                ],
+                menuList:[
+                    [
+                        {
+                            id: '30',
+                            img: '/imgs/item-box-1.png',
+                            name: 'XmiCC9',
+                        },{
+                            id: '31',
+                            img: '/imgs/item-box-2.png',
+                            name: 'Xmi8Yan',
+                        },{
+                            id: '32',
+                            img: '/imgs/item-box-3.jpg',
+                            name: 'RedmiK20Pro',
+                        },{
+                            id: '33',
+                            img: '/imgs/item-box-4.jpg',
+                            name: 'Xmi84G',
+                        }
+                    ],
+                    [0,0,0,0],[0,0,0,0],[0,0, 0,0],[0,0,0,0],[0,0,0,0]
                 ]
             }
         }
@@ -114,6 +145,8 @@
 
 <style lang="scss">
 @import "./../assets/scss/mixin.scss";
+@import "./../assets/scss/config.scss";
+
 .index{
     .swiper-box{
         .nav-menu {
@@ -144,6 +177,40 @@
                     }
                     &:hover{
                         background-color: #FF6600;
+                        .children{
+                            display: block;
+                        }
+                    }
+                    .children{
+                        display: none;
+                        width: 962px;
+                        height: 451px;
+                        background-color: $colorG;
+                        position: absolute;
+                        top:0;
+                        left: 264px;
+                        border: 1px solid $colorH;
+                        ul{
+                            display: flex;
+                            justify-content: space-between;
+                            height: 75px;
+                            li{
+                                height: 75px;
+                                line-height: 75px;
+                                flex: 1;
+                                padding-left: 23px;
+                            }
+                            a{
+                                color:$colorB;
+                                font-size: 14px;
+                            }
+                            img{
+                                width: 42px;
+                                height: 35px;
+                                vertical-align: middle;
+                                margin-right: 15px;
+                            }
+                        }
                     }
                 }
             }
