@@ -71,7 +71,7 @@
                         <div class="list-box">
                             <div class="list" v-for="(arr, index) in phoneList" :key="index">
                               <div class="item" v-for="(item, index1) in arr" :key="index1">
-                                  <span>新品</span>
+                                  <span class="new-pro">新品</span>
                                   <div class="item-img">
                                       <img src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/4c87947d104ee5833913e4c520108f16.jpg" alt="">
                                   </div>
@@ -186,6 +186,14 @@
                     }
                 ],
                 phoneList:[[1,1,1,1],[1,1,1,1]]
+            }
+        },
+        mounted() {
+          this.init();
+        },
+        methods:{
+            init(){
+                console.log('inited')
             }
         }
     }
@@ -319,10 +327,22 @@
                         background-color: $colorG;
                         text-align: center;
                         span{
-
+                           display: inline-block;
+                           width: 67px;
+                           height: 24px;
+                           font-size: 14px;
+                           line-height: 24px;
+                           color: $colorG;
+                           &.new-pro{
+                               background-color: #7ECF68;
+                           }
+                           &.kill-pro{
+                               background-color: #E82626;
+                           }
                         }
                         .item-img{
                             img{
+                                width: 100%;
                                 height: 195px;
                             }
                         }
