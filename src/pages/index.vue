@@ -87,11 +87,23 @@
                 </div>
             </div>
         <service-bar></service-bar>
+        <Modal
+                title="info"
+                sureText="ショッピングカート確認"
+                btnType="1"
+                modalType="middle"
+                :showModal="true"
+        >
+            <template v-slot:body>
+                <p>商品追加完了</p>
+            </template>
+        </Modal>
     </div>
 </template>
 
 <script>
     import ServiceBar from "../components/ServiceBar";
+    import Modal from "../components/Modal";
     import { swiper, swiperSlide } from 'vue-awesome-swiper'
     import 'swiper/dist/css/swiper.css'
     export default {
@@ -99,7 +111,8 @@
         components: {
             swiper,
             swiperSlide,
-            ServiceBar
+            ServiceBar,
+            Modal
         },
         data() {
             return {

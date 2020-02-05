@@ -9,8 +9,12 @@
   cursor: pointer;
 }
 .btn-default{
+  display: inline-block;
   background-color: #B0B0B0;
   color:$colorG;
+  width: 110px;
+    line-height: 30px;
+    text-align: center;
 }
 .btn-large{
   width:202px;
@@ -18,6 +22,7 @@
   line-height: 50px;
   font-size:18px;
 }
+// 最大のbutton
 .btn-huge{
   width:300px;
   height: 54px;
