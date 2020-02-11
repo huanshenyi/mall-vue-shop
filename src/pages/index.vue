@@ -71,14 +71,14 @@
                         <div class="list-box">
                             <div class="list" v-for="(arr, index) in phoneList" :key="index">
                               <div class="item" v-for="(item, index1) in arr" :key="index1">
-                                  <span class="new-pro">新品</span>
+                                  <span :class="{'new-pro':index1%2==0}">新品</span>
                                   <div class="item-img">
                                       <img src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/4c87947d104ee5833913e4c520108f16.jpg" alt="">
                                   </div>
                                   <div class="item-info">
                                       <h3>Xmi9</h3>
                                       <p>何か何か何か何か</p>
-                                      <p class="price">2999元</p>
+                                      <p class="price" @click="addCart()">2999元</p>
                                   </div>
                               </div>
                             </div>
@@ -89,10 +89,12 @@
         <service-bar></service-bar>
         <Modal
                 title="info"
-                sureText="ショッピングカート確認"
+                sureText="確認"
                 btnType="1"
                 modalType="middle"
-                :showModal="true"
+                :showModal="showModal"
+                @cancel="showModal=false"
+                @submit="goTocart"
         >
             <template v-slot:body>
                 <p>商品追加完了</p>
@@ -198,7 +200,8 @@
                         img:'/imgs/ads/ads-4.jpg',
                     }
                 ],
-                phoneList:[[1,1,1,1],[1,1,1,1]]
+                phoneList:[[1,1,1,1],[1,1,1,1]],
+                showModal:false
             }
         },
         mounted() {
@@ -206,9 +209,24 @@
         },
         methods:{
             init(){
-                console.log('inited')
+                this.axios.get('/products', {
+                    params: {
+                        categoryId: 100012,
+                        pageSize:14
+                    }
+                }).then((res)=>{
+                    res.list = res.list.slice(6,14);
+                    this.phoneList = [res.list.slice(0.4), res.list.slice(4,8)];
+                })
+            },
+            addCart(){
+                console.log("addCart")
+               this.showModal = true;
+            },
+            goTocart(){
+                this.$router.push('/cart')
             }
-        }
+        },
     }
 </script>
 

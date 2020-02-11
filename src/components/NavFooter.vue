@@ -5,10 +5,10 @@
             <p>MiShop</p>
         </div>
         <div class="footer-link">
-            <a href="" target="_blank">GiyHub</a><span>|</span>
-            <a href="" target="_blank">GiyHub</a><span>|</span>
-            <a href="" target="_blank">GiyHub</a><span>|</span>
-            <a href="" target="_blank">GiyHub</a><span>|</span>
+            <a href="" target="_blank">GitHub</a><span>|</span>
+            <a href="" target="_blank">GitHub</a><span>|</span>
+            <a href="" target="_blank">GitHub</a><span>|</span>
+            <a href="" target="_blank">GitHub</a><span>|</span>
         </div>
         <div class="copyright">バージョン管理ドメイン管理など</div>
     </div>
