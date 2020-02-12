@@ -52,12 +52,12 @@
             </div>
             <div class="ads-box">
                 <a :href="'/#/product/'+item.id" v-for="(item, index) in adsList" :key="index">
-                    <img :src="item.img" alt="">
+                    <img v-lazy="item.img" alt="">
                 </a>
             </div>
             <div class="banner">
                 <a href="/#/product/30">
-                    <img src="/imgs/banner-1.png" alt="">
+                    <img v-lazy="'/imgs/banner-1.png'" alt="">
                 </a>
             </div>
         </div>
@@ -66,14 +66,14 @@
                     <h2>ケータイ</h2>
                     <div class="wrapper">
                         <div class="banner-left">
-                            <a href="/#/product/35"><img src="/imgs/mix-alpha.jpg" alt=""></a>
+                            <a href="/#/product/35"><img v-lazy="'/imgs/mix-alpha.jpg'" alt=""></a>
                         </div>
                         <div class="list-box">
                             <div class="list" v-for="(arr, index) in phoneList" :key="index">
                               <div class="item" v-for="(item, index1) in arr" :key="index1">
                                   <span :class="{'new-pro':index1%2==0}">新品</span>
                                   <div class="item-img">
-                                      <img src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/4c87947d104ee5833913e4c520108f16.jpg" alt="">
+                                      <img v-lazy="'https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/4c87947d104ee5833913e4c520108f16.jpg'" alt="">
                                   </div>
                                   <div class="item-info">
                                       <h3>Xmi9</h3>

@@ -135,3 +135,9 @@ background-size: contain
        @include flex();
  ...
 ```
+
+### vue-lazyload(画像の部分的ロード)
+リポジトリ: https://www.npmjs.com/package/vue-lazyload
+```javascript
+npm i vue-lazyload --save-dev
+```

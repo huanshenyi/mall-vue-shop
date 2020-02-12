@@ -2,6 +2,7 @@ import Vue from 'vue'
 import App from './App.vue'
 import axios from 'axios'
 import VueAxios from "vue-axios";
+import VueLazyload from "vue-lazyload";
 import store from './store'
 import router from './router'
 
@@ -23,6 +24,9 @@ axios.interceptors.response.use( (response) => {
 });
 
 Vue.use(VueAxios,axios);
+Vue.use(VueLazyload, {
+  loading:'/imgs/loading-svg/loading-bars.svg'//imgロード中にアニメ効果
+});
 Vue.config.productionTip = false;
 
 new Vue({
