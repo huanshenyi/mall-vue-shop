@@ -13,7 +13,22 @@ export default {
     }
   },
   mounted() {
+    this.getUser();
+    this.getCartCount();
   },
+  methods: {
+    getUser(){
+      this.axios.get("/user").then(()=>{
+        //取得して、todo vuexに保存
+      })
+    },
+    getCartCount(){
+      this.axios.get("/carts/products/sum").then(()=>{
+        //取得して、todo vuexに保存
+        console.log("/carts/products/sum")
+      })
+    }
+  }
 }
 </script>
 
