@@ -3,6 +3,7 @@ import App from './App.vue'
 import axios from 'axios'
 import VueAxios from "vue-axios";
 import VueLazyload from "vue-lazyload";
+import VueCookie from 'vue-cookie';
 import store from './store'
 import router from './router'
 
@@ -20,6 +21,7 @@ axios.interceptors.response.use( (response) => {
     window.location.href = '/#/login';
   }else {
     alert(res.msg);
+    return Promise.reject(res);
   }
 });
 
@@ -27,6 +29,7 @@ Vue.use(VueAxios,axios);
 Vue.use(VueLazyload, {
   loading:'/imgs/loading-svg/loading-bars.svg'//imgロード中にアニメ効果
 });
+Vue.use(VueCookie);
 Vue.config.productionTip = false;
 
 new Vue({

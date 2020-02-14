@@ -141,3 +141,9 @@ background-size: contain
 ```javascript
 npm i vue-lazyload --save-dev
 ```
+
+### vue-cookieの文法
+
+```javascript
+https://www.npmjs.com/package/vue-cookie
+```
