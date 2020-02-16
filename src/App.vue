@@ -18,14 +18,15 @@ export default {
   },
   methods: {
     getUser(){
-      this.axios.get("/user").then(()=>{
+      this.axios.get("/user").then((res)=>{
         //取得して、todo vuexに保存
+        this.$store.dispatch('saveUserName', {userName:res.username})
       })
     },
     getCartCount(){
-      this.axios.get("/carts/products/sum").then(()=>{
+      this.axios.get("/carts/products/sum").then((res)=>{
         //取得して、todo vuexに保存
-        console.log("/carts/products/sum")
+        this.$store.dispatch('saveCartCount', res);
       })
     }
   }

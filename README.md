@@ -147,3 +147,14 @@ npm i vue-lazyload --save-dev
 ```javascript
 https://www.npmjs.com/package/vue-cookie
 ```
+
+### Vuex-メモ
+```javascript
+mapState === this.$store.state
+
+computed: mapState([
+ 'count'
+])
+オブジェクトスプレッド演算子によって実現された
+
+```

@@ -13,7 +13,7 @@
                     <a href="javascript:;" v-if="!username" @click="login">ログイン</a>
                     <a href="javascript:;" class="my-cart">
                         <span class="icon-cart" @click="goToCart"></span>
-                        買い物かご
+                        買い物かご({{cartCount}})
                     </a>
                 </div>
             </div>
@@ -104,13 +104,26 @@
 </template>
 
 <script>
+    import { mapState } from 'vuex';
     export default {
         name: "NavHeader",
         data(){
             return {
-                username:'',
                 phoneList:[]
             }
+        },
+        computed:{
+            // 一般的なやり方
+            // username(){
+            //     return this.$store.state.username.userName;
+            // },
+            // cartCount(){
+            //     return this.$store.state.cartCount;
+            // },
+            ...mapState([
+                "username",
+                "cartCount"
+            ])
         },
         filters:{
           currency(val){

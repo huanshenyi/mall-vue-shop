@@ -40,6 +40,7 @@
 </template>
 
 <script>
+    import { mapActions } from 'vuex';
     export default {
         name: "login",
         data(){
@@ -59,11 +60,16 @@
                     this.res = res;
                     this.$cookie.set('userId', res.id, {expires: '1M'});
                     // to-do ユーザーネームをvuexに保存
+                    // this.$store.dispatch("saveUserName", {userName:this.username});
+                    this.saveUserName({userName:this.username});
                     this.$router.push('/');
                 }).catch((err)=>{
                     console.log(err)
                 })
             },
+            ...mapActions([
+                "saveUserName"
+            ]),
             register(){
                 this.axios.post('/user/login', {
                     username:'何か',
