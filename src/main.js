@@ -20,7 +20,9 @@ axios.interceptors.response.use( (response) => {
   }else if (res.status === 10){
     // main.jsにルート使えないのでhrefを使用
     if(path !== '#/index'){
-     window.location.href = '/#/login';
+      if (path.indexOf('#/product') !== 0){
+        window.location.href = '/#/login';
+      }
     }
   }else {
     alert(res.msg);
