@@ -158,3 +158,8 @@ computed: mapState([
 オブジェクトスプレッド演算子によって実現された
 
 ```
+### よりいいアニメーションライブラリ
+
+```javascript
+https://daneden.github.io/animate.css/
+```
