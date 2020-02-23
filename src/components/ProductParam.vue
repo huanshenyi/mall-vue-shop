@@ -2,7 +2,7 @@
     <div class="nav-bar" :class="{'is_fixed':isFixed}">
         <div class="container">
             <div class="pro-title">
-              Xim8
+              {{title}}
             </div>
             <div class="pro-param">
                 <a href="javascript:;">説明</a><span>|</span>
@@ -17,6 +17,9 @@
 <script>
     export default {
         name: "ProductParam",
+        props:{
+            title: String
+        },
         data(){
             return {
                 isFixed : false,

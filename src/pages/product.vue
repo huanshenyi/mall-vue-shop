@@ -1,14 +1,14 @@
 <template>
     <div class="product">
-        <product-param>
+        <product-param :title="product.name">
             <template v-slot:buy>
-                <button class="btn">購入</button>
+                <button class="btn" @click="buy">購入</button>
             </template>
         </product-param>
         <div class="content">
             <div class="item-bg">
-                <h2>Xim9</h2>
-                <h3>Xim9 Pro</h3>
+                <h2>{{product.name}}</h2>
+                <h3>{{product.subtitle}}</h3>
                 <p>
                     <a href="javascript:;">何かGP</a>
                     <span>|</span>
@@ -18,7 +18,7 @@
                     <span>|</span>
                 </p>
                 <div class="price">
-                    <span>￥<em>2599</em></span>
+                    <span>￥<em>{{product.price}}</em></span>
                 </div>
             </div>
             <div class="item-bg-2"></div>
@@ -39,10 +39,10 @@
                <h2>何かの説明<br/>説明2</h2>
                <p>何かの説明何かの説明何かの説明何かの説明何かの説明<br/>何かの説明何かの説明何かの説明</p>
                <div class="video-bg" @click="showSlide='slideDown'"></div>
-               <div class="video-box">
+               <div class="video-box" v-show="showSlide">
                    <div class="overlay" v-if="showSlide==='slideDown'"></div>
                    <div class="video" :class="showSlide">
-                       <span class="icon-close" @click="showSlide='slideUp'"></span>
+                       <span class="icon-close" @click="closeVideo"></span>
                        <video src="/imgs/product/video.mp4" muted autoplay controls="controls"></video>
                    </div>
                </div>
@@ -63,7 +63,8 @@
         },
         data(){
             return {
-                showSlide:'',
+                showSlide:'',// アニメーションコントローラー
+                product:{},// プロダクトデータ
                 swiperOption: {
                   autoplay:true,
                   slidesPerView:3,
@@ -74,6 +75,27 @@
                     clickable :true,
                   }
                 }
+            }
+        },
+        mounted() {
+            this.getProductInfo();
+        },
+        methods:{
+            getProductInfo(){
+                let id = this.$route.params.id;
+                this.axios.get(`/products/${id}`).then((res)=>{
+                   this.product = res;
+                })
+            },
+            buy(){
+              let id = this.$route.params.id;
+              this.$router.push(`/detail/${id}`);
+            },
+            closeVideo(){
+                this.showSlide = 'slideUp';
+                setTimeout(()=>{
+                    this.showSlide = '';
+                },600)
             }
         }
     }
