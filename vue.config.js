@@ -14,6 +14,8 @@ module.exports = {
        }
      }
   },
-
-  lintOnSave: false
+  // publicPath:'/app',
+  // outputDir: 'dist',
+  // lintOnSave: false,
+  productionSourceMap: true
 };

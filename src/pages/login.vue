@@ -63,8 +63,8 @@
                     // this.$store.dispatch("saveUserName", {userName:this.username});
                     this.saveUserName({userName:this.username});
                     this.$router.push('/');
-                }).catch((err)=>{
-                    console.log(err)
+                }).catch(()=>{
+
                 })
             },
             ...mapActions([

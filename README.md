@@ -11,6 +11,9 @@ jsonp
         this.data = result
     })
 ```
+### vue.config.jsの設定
+https://cli.vuejs.org/zh/config/#vue-config-js
+
 プロキシ
 ```javascript
 // vue.config.js (commonjsの書き方)
