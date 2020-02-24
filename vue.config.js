@@ -16,6 +16,6 @@ module.exports = {
   },
   // publicPath:'/app',
   // outputDir: 'dist',
-  // lintOnSave: false,
+  lintOnSave: false,
   productionSourceMap: true
 };

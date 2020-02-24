@@ -166,3 +166,6 @@ computed: mapState([
 ```javascript
 https://daneden.github.io/animate.css/
 ```
+
+### png画像のサイズ圧縮用
+https://tinypng.com/

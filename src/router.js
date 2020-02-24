@@ -3,7 +3,7 @@ import Router from 'vue-router'
 import Home from './pages/home'
 import Index from './pages/index'
 import Order from './pages/order'
-import Login from './pages/login'
+// import Login from './pages/login'
 
 Vue.use(Router);
 
@@ -38,7 +38,7 @@ export default new Router({
         {
             path: '/login',
             name: 'login',
-            component: Login
+            component: resolve => require(['./pages/login.vue'], resolve),
         },
         {
             path: '/order',
