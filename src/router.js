@@ -2,7 +2,7 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import Home from './pages/home'
 import Index from './pages/index'
-import Order from './pages/order'
+// import Order from './pages/order'
 // import Login from './pages/login'
 
 Vue.use(Router);
@@ -43,7 +43,7 @@ export default new Router({
         {
             path: '/order',
             name: 'order',
-            component: Order,
+            component: () => import('./pages/order'),
             children:[
                 {
                     path: 'list',

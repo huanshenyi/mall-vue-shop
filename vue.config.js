@@ -17,5 +17,8 @@ module.exports = {
   // publicPath:'/app',
   // outputDir: 'dist',
   lintOnSave: false,
-  productionSourceMap: true
+  productionSourceMap: false,
+  chainWebpack: (config) => {
+      config.plugins.delete('prefetch'); //予めロードされるルートを削除
+  }
 };

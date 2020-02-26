@@ -169,3 +169,21 @@ https://daneden.github.io/animate.css/
 
 ### png画像のサイズ圧縮用
 https://tinypng.com/
+
+### サーバーのnginx関連
+
+```shell script
+yum install nginx
+```
+nginxの設定ファイルを見る、大丈夫かの確認
+```shell script
+nginx -t
+```
+nginx をとめる
+```shell script
+nginx -s stop
+```
+nginx 再起動
+```shell script
+nginx -s reload
+```
